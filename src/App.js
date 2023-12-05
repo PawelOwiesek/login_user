@@ -10,7 +10,16 @@ function App() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#9e9e9e33",
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       {currentForm === "login" ? (
         <LoginForm formName={toggleForm} />
       ) : (
