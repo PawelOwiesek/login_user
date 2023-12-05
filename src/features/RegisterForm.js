@@ -40,7 +40,7 @@ const RegisterForm = ({ formName }) => {
                 type="email"
                 name="email"
                 value={email}
-                placeholder="Your email address"
+                placeholder="Your email adress"
                 required
               />
             </InputLabel>

@@ -31,7 +31,7 @@ const LoginForm = ({ formName }) => {
                 type="email"
                 name="email"
                 value={email}
-                placeholder="your email address"
+                placeholder="your email adress"
                 required
               />
             </InputLabel>
