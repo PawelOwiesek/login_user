@@ -4,6 +4,8 @@ import {
   Container,
   Input,
   InputLabel,
+  RegLink,
+  Paragraph,
   Title,
 } from "./loginPage/styled";
 
@@ -58,6 +60,10 @@ const RegisterForm = ({ formName }) => {
           <Button onClick={() => formName("login")}>
             Already have an account? Log in
           </Button>
+          <Paragraph>
+            Logging in You are agree to aour terms and policies.
+            <RegLink href="/">READ more</RegLink>
+          </Paragraph>
         </section>
       </main>
     </Container>

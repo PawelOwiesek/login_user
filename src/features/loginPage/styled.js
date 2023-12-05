@@ -34,11 +34,13 @@ export const Title = styled.h1`
 export const SubHeader = styled.h2`
   color: #f5f5f5;
   font-size: 36px;
+  margin: 0;
+
   @media (max-width: 767px) {
     font-size: 25px;
-    margin: 0;
   }
 `;
+
 export const InputLabel = styled.label`
   font-size: 30px;
   color: #fff;
@@ -48,6 +50,7 @@ export const InputLabel = styled.label`
     font-size: 20px;
   }
 `;
+
 export const Input = styled.input`
   display: flex;
   font-size: 25px;
@@ -71,8 +74,20 @@ export const Button = styled.button`
   padding: 10px;
   border-radius: 10px;
   margin: 10px auto;
+  font-weight: bold;
 
   @media (max-width: 767px) {
     font-size: 16px;
   }
+`;
+
+export const Paragraph = styled.p`
+  font-size: 18px;
+  color: #fff;
+`;
+
+export const RegLink = styled.a`
+  text-decoration-line: none;
+  color: #ea3232;
+  margin-left: 20px;
 `;

@@ -5,6 +5,8 @@ import {
   Input,
   Button,
   SubHeader,
+  Paragraph,
+  RegLink,
 } from "./styled.js";
 import { useState } from "react";
 
@@ -50,6 +52,10 @@ const LoginForm = ({ formName }) => {
           <Button onClick={() => formName("register")}>
             No account yet? Register
           </Button>
+          <Paragraph>
+            Logging in You are agree to aour terms and policies.
+            <RegLink href="/">READ more</RegLink>
+          </Paragraph>
         </section>
       </main>
     </Container>
