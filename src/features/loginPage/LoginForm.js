@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Validation from "../LoginValidation";
 import {
   Container,
   InputLabel,
@@ -8,14 +10,24 @@ import {
   Paragraph,
   RegLink,
 } from "./styled.js";
-import { useState } from "react";
 
 const LoginForm = ({ formName }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({});
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    setErrors(Validation(values));
+  };
+
+  const handleInputChange = (event) => {
+    setValues((prev) => ({
+      ...prev,
+      [event.target.name]: [event.target.value],
+    }));
   };
 
   return (
@@ -32,22 +44,28 @@ const LoginForm = ({ formName }) => {
               <Input
                 type="email"
                 name="email"
-                value={email}
                 placeholder="your email adress"
                 required
+                onChange={handleInputChange}
               />
             </InputLabel>
+            <p style={{ margin: "0", color: "crimson", fontSize: "22px" }}>
+              {errors.email && <span>{errors.email}</span>}
+            </p>
             <InputLabel>
               Password:
               <Input
                 type="password"
                 name="password"
-                value={password}
                 placeholder="**********"
                 required
+                onChange={handleInputChange}
               />
             </InputLabel>
-            <Button>Log In</Button>
+            <p style={{ margin: "0", color: "crimson", fontSize: "22px" }}>
+              {errors.password && <span>{errors.password}</span>}
+            </p>
+            <Button type="submit">Log In</Button>
           </form>
           <Button onClick={() => formName("register")}>
             No account yet? Register
