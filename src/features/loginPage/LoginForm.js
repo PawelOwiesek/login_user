@@ -1,4 +1,11 @@
-import { Container, InputLabel, Title, Input, Button } from "./styled.js";
+import {
+  Container,
+  InputLabel,
+  Title,
+  Input,
+  Button,
+  SubHeader,
+} from "./styled.js";
 import { useState } from "react";
 
 const LoginForm = ({ formName }) => {
@@ -17,6 +24,7 @@ const LoginForm = ({ formName }) => {
       <main>
         <section>
           <form onSubmit={onFormSubmit}>
+            <SubHeader>Login</SubHeader>
             <InputLabel>
               Email:
               <Input

@@ -16,7 +16,10 @@ export const Title = styled.h1`
   color: #f5f5f5;
   font-size: 42px;
 `;
-
+export const SubHeader = styled.h2`
+  color: #f5f5f5;
+  font-size: 36px;
+`;
 export const InputLabel = styled.label`
   font-size: 30px;
   color: #fff;
