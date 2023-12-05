@@ -6,8 +6,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background: linear-gradient(45deg, #d54b4b, #172470, #1edc14);
-  max-width: 800px;
-  max-height: 600px;
+  width: 800px;
+  max-height: 630px;
   border-radius: 20px;
   box-shadow: 30px -18px 100px 49px #2b5e47;
 
