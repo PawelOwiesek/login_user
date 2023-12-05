@@ -1,7 +1,7 @@
 import { Container, Title } from "./styled.js";
 import { useState } from "react";
 
-const LoginForm = () => {
+const LoginForm = ({ formName }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -39,7 +39,9 @@ const LoginForm = () => {
             </label>
             <button>Log In</button>
           </form>
-          <button>No account yet? Register</button>
+          <button onClick={() => formName("register")}>
+            No account yet? Register
+          </button>
         </section>
       </main>
     </Container>
