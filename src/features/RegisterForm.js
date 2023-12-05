@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Container, Title } from "./loginPage/styled";
+import {
+  Button,
+  Container,
+  Input,
+  InputLabel,
+  Title,
+} from "./loginPage/styled";
 
 const RegisterForm = ({ formName }) => {
   const [email, setEmail] = useState("");
@@ -18,41 +24,40 @@ const RegisterForm = ({ formName }) => {
       <main>
         <section>
           <form onSubmit={onFormSubmit}>
-            <label>
+            <InputLabel>
               Full name:
-              <input
+              <Input
                 type="text"
                 name="name"
                 value={name}
-                placeholder="your full name"
+                placeholder="Your full name"
                 required
               />
-            </label>
-            <label>
+            </InputLabel>
+            <InputLabel>
               Email:
-              <input
+              <Input
                 type="email"
                 name="email"
                 value={email}
-                placeholder="your email address"
+                placeholder="Your email address"
                 required
               />
-            </label>
-            <label>
+            </InputLabel>
+            <InputLabel>
               Password:
-              <input
+              <Input
                 type="password"
                 name="password"
                 value={password}
                 placeholder="**********"
                 required
               />
-            </label>
-            <button>Log In</button>
+            </InputLabel>
           </form>
-          <button onClick={() => formName("login")}>
+          <Button onClick={() => formName("login")}>
             Already have an account? Log in
-          </button>
+          </Button>
         </section>
       </main>
     </Container>
