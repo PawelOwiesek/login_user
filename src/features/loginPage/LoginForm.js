@@ -10,6 +10,7 @@ import {
   Paragraph,
   RegLink,
 } from "./styled.js";
+import axios from "axios";
 
 const LoginForm = ({ formName }) => {
   const [values, setValues] = useState({
@@ -21,6 +22,20 @@ const LoginForm = ({ formName }) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
+    if (errors.email === "" && errors.password === "") {
+      axios
+        .post("http://localhost:8081/login", values)
+        .then((response) => {
+          if (response.data === "Success") {
+            console.log("Success!");
+          } else {
+            console.log("Problem");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   const handleInputChange = (event) => {
