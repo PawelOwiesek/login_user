@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Validation from "./RegisterValidation";
+import Validation from "./registerValidation";
 import {
   Button,
   Container,
@@ -45,7 +45,6 @@ const RegisterForm = ({ formName }) => {
                 type="text"
                 name="name"
                 placeholder="Your full name"
-                required
                 onChange={handleInputChange}
               />
             </InputLabel>
@@ -58,7 +57,6 @@ const RegisterForm = ({ formName }) => {
                 type="email"
                 name="email"
                 placeholder="Your email adress"
-                required
                 onChange={handleInputChange}
               />
             </InputLabel>
@@ -71,7 +69,6 @@ const RegisterForm = ({ formName }) => {
                 type="password"
                 name="password"
                 placeholder="**********"
-                required
                 onChange={handleInputChange}
               />
             </InputLabel>
