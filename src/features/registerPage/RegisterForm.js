@@ -32,7 +32,13 @@ const RegisterForm = ({ formName }) => {
     if (errors.name === "" && errors.password === "" && errors.email === "") {
       axios
         .post("http://localhost:8081/signup", values)
-        .then((res) => console.log(res))
+        .then((res) => {
+          if (res.statusText === "OK") {
+            formName("login");
+          } else {
+            formName("register");
+          }
+        })
         .catch((err) => console.log(err));
     }
   };
@@ -81,7 +87,7 @@ const RegisterForm = ({ formName }) => {
             <p style={{ margin: "0", color: "crimson", fontSize: "22px" }}>
               {errors.password && <span>{errors.password}</span>}
             </p>
-            <Button type="submit">Sign In</Button>
+            <Button type="submit">Create account</Button>
           </form>
           <Button onClick={() => formName("login")}>
             Already have an account? Log in
