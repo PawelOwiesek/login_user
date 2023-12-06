@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Validation from "./registerValidation";
+import axios from "axios";
 import {
   Button,
   Container,
@@ -28,7 +29,12 @@ const RegisterForm = ({ formName }) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
-    console.log(errors);
+    if (errors.name === "" && errors.password === "" && errors.email === "") {
+      axios
+        .post("http://localhost:8081/signup", values)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
