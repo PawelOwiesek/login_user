@@ -3,6 +3,36 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ![Animation](https://github.com/PawelOwiesek/login_user/assets/121549413/2bd53604-ee2a-47d5-a53e-8316f7497bc3)
 
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "signup",
+});
+
+app.post("/signup", (req, res) => {
+  const sql = `INSERT INTO login (name,password,email) VALUES (?,?,?)`;
+  const values = [req.body.name, req.body.password, req.body.email];
+  db.query(sql, values, (err, data) => {
+    if (err) {
+      return res.json("Error , its not working");
+    }
+    return res.json(data);
+  });
+});
+
+app.post("/login", (req, res) => {
+  const sql = `SELECT * FROM login WHERE email=? AND password=?`;
+
+  db.query(sql, [req.body.email, req.body.password], (err, data) => {
+    if (err) {
+      return res.json("Error , its not working");
+    }
+    if (data.length > 0) {
+      return res.json("Success");
+    } else {
+
 ## Available Scripts
 
 In the project directory, you can run:
