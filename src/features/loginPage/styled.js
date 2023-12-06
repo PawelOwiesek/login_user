@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   background: linear-gradient(45deg, #d54b4b, #172470, #1edc14);
   width: 800px;
-  max-height: 630px;
+  max-height: 670px;
   border-radius: 20px;
   box-shadow: 30px -18px 100px 49px #2b5e47;
 
