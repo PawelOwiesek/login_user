@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Validation from "./RegisterValidation";
 import {
   Button,
   Container,
@@ -7,15 +8,27 @@ import {
   RegLink,
   Paragraph,
   Title,
-} from "./loginPage/styled";
+} from "./styled";
 
 const RegisterForm = ({ formName }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [errors, setErrors] = useState({});
+  const [values, setValues] = useState({
+    name: "",
+    password: "",
+    email: "",
+  });
+
+  const handleInputChange = (event) => {
+    setValues((prev) => ({
+      ...prev,
+      [event.target.name]: [event.target.value],
+    }));
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    setErrors(Validation(values));
+    console.log(errors);
   };
 
   return (
@@ -31,31 +44,41 @@ const RegisterForm = ({ formName }) => {
               <Input
                 type="text"
                 name="name"
-                value={name}
                 placeholder="Your full name"
                 required
+                onChange={handleInputChange}
               />
             </InputLabel>
+            <p style={{ margin: "0", color: "crimson", fontSize: "22px" }}>
+              {errors.name && <span>{errors.name}</span>}
+            </p>
             <InputLabel>
               Email:
               <Input
                 type="email"
                 name="email"
-                value={email}
                 placeholder="Your email adress"
                 required
+                onChange={handleInputChange}
               />
             </InputLabel>
+            <p style={{ margin: "0", color: "crimson", fontSize: "22px" }}>
+              {errors.email && <span>{errors.email}</span>}
+            </p>
             <InputLabel>
               Password:
               <Input
                 type="password"
                 name="password"
-                value={password}
                 placeholder="**********"
                 required
+                onChange={handleInputChange}
               />
             </InputLabel>
+            <p style={{ margin: "0", color: "crimson", fontSize: "22px" }}>
+              {errors.password && <span>{errors.password}</span>}
+            </p>
+            <Button type="submit">Sign In</Button>
           </form>
           <Button onClick={() => formName("login")}>
             Already have an account? Log in
