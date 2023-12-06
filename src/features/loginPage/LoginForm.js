@@ -27,9 +27,9 @@ const LoginForm = ({ formName }) => {
         .post("http://localhost:8081/login", values)
         .then((response) => {
           if (response.data === "Success") {
-            console.log("Success!");
+            formName("homepage");
           } else {
-            console.log("Problem");
+            formName("register");
           }
         })
         .catch((error) => {
