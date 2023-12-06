@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RegisterForm from "./features/registerPage/RegisterForm";
 import LoginForm from "./features/loginPage/LoginForm";
+import HomePage from "./features/userPage/homepage";
 
 function App() {
   const [currentForm, setCurrentForm] = useState("login");
@@ -22,9 +23,11 @@ function App() {
     >
       {currentForm === "login" ? (
         <LoginForm formName={toggleForm} />
-      ) : (
+      ) : currentForm === "register" ? (
         <RegisterForm formName={toggleForm} />
-      )}
+      ) : currentForm === "homepage" ? (
+        <HomePage formName={toggleForm} />
+      ) : null}
     </div>
   );
 }
