@@ -79,16 +79,17 @@ const LoginForm = ({ formName }) => {
             </InputLabel>
             <p style={{ margin: "0", color: "crimson", fontSize: "22px" }}>
               {errors.password && <span>{errors.password}</span>}
-            </p>
+            </p>{" "}
+            <Paragraph>
+              <input type="checkbox" required /> Logging in You are agree to
+              aour terms and policies.
+              <RegLink href="/">READ more</RegLink>
+            </Paragraph>
             <Button type="submit">Log In</Button>
           </form>
           <Button onClick={() => formName("register")}>
             No account yet? Register
           </Button>
-          <Paragraph>
-            Logging in You are agree to aour terms and policies.
-            <RegLink href="/">READ more</RegLink>
-          </Paragraph>
         </section>
       </main>
     </Container>
